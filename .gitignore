@@ -8,3 +8,7 @@
 /.purs*
 /.psa*
 /.spago
+
+*.tgz
+*.swp
+main.js

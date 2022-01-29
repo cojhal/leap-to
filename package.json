@@ -1,0 +1,27 @@
+{
+  "name": "leap-to",
+  "version": "0.0.0",
+  "description": "CLI for cd'ing to path aliases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "spago bundle-module --to main.js"
+  },
+  "bin": {
+    "leap": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "main.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cojhal/leap-to.git"
+  },
+  "author": "Connor Hall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cojhal/leap-to/issues"
+  },
+  "homepage": "https://github.com/cojhal/leap-to#readme"
+}
