@@ -22,7 +22,6 @@ foreign import store :: Store -> String -> Effect Unit
 
 foreign import retrieve :: String -> Effect Store
 
---- SUBS ---
 printUsage :: Effect Unit
 printUsage =
   traverse_ log
@@ -31,9 +30,6 @@ printUsage =
     , "       leap delete <name>"
     , "       leap print"
     ]
-
-contains :: Array String -> String -> Boolean
-contains = flip elem
 
 printHash :: Store -> Effect Unit
 printHash = traverse_ log <<< showEntries
@@ -44,20 +40,17 @@ printHash = traverse_ log <<< showEntries
   showEntry :: String -> String -> String
   showEntry k v = k <> " => " <> v
 
---- END SUBS ---
---- MAIN ---
 main :: Effect Unit
 main = do
   args <- getArgs
-  if args `contains` "--help" then do
+  if "--help" `elem` args then
     printUsage
   else do
-    -- Load data
     dirname <- getDirname
     let
       dataDir = Path.concat [ dirname, "data" ]
 
-      dataFile = Path.concat [ dataDir, "dirs.dat" ]
+      dataFile = Path.concat [ dataDir, "dirs.json" ]
     unlessM (exists dataDir) (mkdir dataDir)
     hash <- ifM (exists dataFile) (retrieve dataFile) (pure FO.empty)
     let
@@ -78,5 +71,3 @@ main = do
       Just "to" -> traverse_ (\path -> log $ "cd " <> path) (join $ FO.lookup <$> arg1 <*> pure hash)
       Just name -> traverse_ (\path -> log $ "cd " <> path) (FO.lookup name hash)
       Nothing -> pure unit
-
--- END MAIN ---
