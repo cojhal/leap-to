@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "spago bundle-module --to main.js"
+    "build": "spago bundle-module --to main.js",
+    "format": "purty --write src && purty --write test"
   },
   "bin": {
     "leap": "./index.js"
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/cojhal/leap-to/issues"
   },
-  "homepage": "https://github.com/cojhal/leap-to#readme"
+  "homepage": "https://github.com/cojhal/leap-to#readme",
+  "devDependencies": {
+    "purty": "^7.0.0"
+  }
 }

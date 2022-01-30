@@ -1,7 +1,6 @@
 module Main where
 
 import Prelude
-
 import Data.Array (elem, (!!))
 import Data.Foldable (traverse_)
 import Data.Maybe (Maybe(..), fromMaybe)
@@ -12,11 +11,15 @@ import Foreign.Object as FO
 import Node.FS.Sync (exists, mkdir)
 import Node.Path as Path
 
-type Store = FO.Object String
+type Store
+  = FO.Object String
 
 foreign import getArgs :: Effect (Array String)
+
 foreign import getDirname :: Effect String
+
 foreign import store :: Store -> String -> Effect Unit
+
 foreign import retrieve :: String -> Effect Store
 
 --- SUBS ---
@@ -40,8 +43,8 @@ printHash = traverse_ log <<< showEntries
 
   showEntry :: String -> String -> String
   showEntry k v = k <> " => " <> v
---- END SUBS ---
 
+--- END SUBS ---
 --- MAIN ---
 main :: Effect Unit
 main = do
@@ -53,13 +56,15 @@ main = do
     dirname <- getDirname
     let
       dataDir = Path.concat [ dirname, "data" ]
+
       dataFile = Path.concat [ dataDir, "dirs.dat" ]
     unlessM (exists dataDir) (mkdir dataDir)
     hash <- ifM (exists dataFile) (retrieve dataFile) (pure FO.empty)
-
     let
       cmd = args !! 0
+
       arg1 = args !! 1
+
       arg2 = args !! 2
     case cmd of
       Just "register" -> case arg1 of
