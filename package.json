@@ -5,15 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "spago bundle-module --to main.js",
+    "build": "spago bundle-app",
     "format": "purty --write src && purty --write test"
   },
   "bin": {
     "leap": "./index.js"
   },
   "files": [
-    "index.js",
-    "main.js"
+    "index.js"
   ],
   "repository": {
     "type": "git",
