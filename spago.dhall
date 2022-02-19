@@ -12,7 +12,8 @@ to generate this file without the comments in this block.
 -}
 { name = "my-project"
 , dependencies =
-  [ "console"
+  [ "aff"
+  , "console"
   , "control"
   , "effect"
   , "either"
@@ -24,8 +25,9 @@ to generate this file without the comments in this block.
   , "node-path"
   , "prelude"
   , "psci-support"
-  , "tuples"
+  , "spec"
   , "transformers"
+  , "tuples"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
