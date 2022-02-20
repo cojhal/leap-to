@@ -16,7 +16,7 @@ type Store
 
 foreign import getArgs :: Effect (Array String)
 
-foreign import getDirname :: Effect String
+foreign import getHomedir :: Effect String
 
 foreign import store :: Store -> String -> Effect Unit
 
@@ -43,9 +43,9 @@ printHash = traverse_ log <<< showEntries
 main :: Effect Unit
 main = do
   args <- getArgs
-  dirname <- getDirname
+  dirname <- getHomedir
   let
-    dataDir = Path.concat [ dirname, "data" ]
+    dataDir = Path.concat [ dirname, ".leap-to" ]
 
     dataFile = Path.concat [ dataDir, "dirs.json" ]
   unlessM (exists dataDir) (mkdir dataDir)
