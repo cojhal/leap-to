@@ -4,7 +4,7 @@
   "description": "CLI for cd'ing to path aliases",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "spago test && purty validate src && purty validate test",
     "build": "spago bundle-app",
     "format": "purty --write src && purty --write test"
   },
