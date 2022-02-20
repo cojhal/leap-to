@@ -9,9 +9,10 @@
     "format": "purty --write src && purty --write test"
   },
   "bin": {
-    "leap": "./index.js"
+    "leap": "bin.js"
   },
   "files": [
+    "bin.js",
     "index.js"
   ],
   "repository": {
