@@ -1,6 +1,6 @@
 {
   "name": "leap-to",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CLI for cd'ing to path aliases",
   "main": "index.js",
   "scripts": {
