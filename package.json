@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "spago test && purty validate src && purty validate test",
-    "build": "spago bundle-app",
+    "prepare": "spago bundle-app",
     "format": "purty --write src && purty --write test"
   },
   "bin": {
