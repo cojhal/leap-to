@@ -1,7 +1,8 @@
 const fs = require('fs');
+const os = require('os');
 
 exports.getArgs = () => process.argv.slice(2)
-exports.getDirname = () => __dirname;
+exports.getHomedir = () => os.homedir();
 
 exports.retrieve = file => () => {
     const contents = fs.readFileSync(file, { encoding: "utf-8" })

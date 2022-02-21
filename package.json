@@ -4,15 +4,16 @@
   "description": "CLI for cd'ing to path aliases",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "spago bundle-module --to main.js"
+    "test": "spago test && purty validate src && purty validate test",
+    "build": "spago bundle-app",
+    "format": "purty --write src && purty --write test"
   },
   "bin": {
-    "leap": "./index.js"
+    "leap": "bin.js"
   },
   "files": [
-    "index.js",
-    "main.js"
+    "bin.js",
+    "index.js"
   ],
   "repository": {
     "type": "git",
@@ -23,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/cojhal/leap-to/issues"
   },
-  "homepage": "https://github.com/cojhal/leap-to#readme"
+  "homepage": "https://github.com/cojhal/leap-to#readme",
+  "devDependencies": {
+    "purescript": "^0.14.5",
+    "purty": "^7.0.0",
+    "spago": "^0.20.7"
+  }
 }
