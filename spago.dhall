@@ -24,7 +24,6 @@ to generate this file without the comments in this block.
   , "node-fs"
   , "node-path"
   , "prelude"
-  , "psci-support"
   , "spec"
   , "transformers"
   , "tuples"
