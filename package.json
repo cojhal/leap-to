@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "CLI for cd'ing to path aliases",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "spago test && purty validate src && purty validate test",
-    "prepare": "spago bundle-app",
+    "prepare": "spago bundle-app --platform node --minify",
     "format": "purty --write src && purty --write test"
   },
   "bin": {
@@ -26,8 +27,12 @@
   },
   "homepage": "https://github.com/cojhal/leap-to#readme",
   "devDependencies": {
-    "purescript": "^0.14.5",
+    "esbuild": "^0.15.2",
+    "purescript": "^0.15.0",
     "purty": "^7.0.0",
-    "spago": "^0.20.7"
+    "spago": "^0.20.8"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
